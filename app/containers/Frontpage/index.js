@@ -10,8 +10,16 @@ import style from './index.scss';
 import moment from 'moment';
 
 
+
 let fetchEntriesTimerId;
 let fetchTasksTimerId;
+
+//styling
+const rowStyle = `${style.rowStyle}`;
+const tableStyle = `${style.tableStyle}`;
+const tdStyle = `${style.tdStyle}`;
+const rightTd = `${style.rightTd}`;
+const tableScroller = `${style.tableScroller}`
 
 class Frontpage extends React.Component {
 
@@ -39,21 +47,39 @@ class Frontpage extends React.Component {
         return task.id === entry.task_id;
       })[0];
       return (
-          <tr key={entry.id}>
-            <td><Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>{entry.parent_entry_id ? '....' : ''}{task ? task.name : ''}</Link></td>
-            <td><Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>{entry.content}</Link></td>
-            <td><Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>{moment(entry.updatedAt).fromNow()}</Link></td>
+          <tr key={entry.id} className="fl w-100" className={rowStyle}>
+            <td className={tdStyle}>
+              <Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>
+                {entry.parent_entry_id ? '....' : ''}
+                {task ? task.name : ''}
+              </Link>
+            </td>
+            <td className={tdStyle}>
+              <Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>
+                {entry.content}
+              </Link>
+            </td>
+            <td className={tdStyle} id={rightTd}>
+              <Link className="text-muted" to={"/entries/" + entry.id} key={entry.id}>
+                {moment(entry.updatedAt).fromNow()}
+              </Link>
+            </td>
           </tr>
         );
     });
+
+
     return (
       <div>
-        <div className="f1 w-100">
-          <ToDoList todos={this.props.todos} onClickAddTask={(text, userId=this.props.user.id) => {this.props.onClickAdd(text, userId)}}/>
+        <div className="fl w-50" >
+          <AddToDo onClick={this.props.onClickAddTask} />
+          <ToDoList
+            todos={this.props.todos} onClickAddTask={(text, userId=this.props.user.id) => {this.props.onClickAdd(text, userId)}}/>
         </div>
         <p></p>
-        <div className="container f1 w-50">
-          <div className="list-group">
+        <div className="container fr w-50">
+          <h1>Keep Up Your Habits!</h1>
+          <div className="list-group" className={tableScroller}>
             <div className="list-group-item">
               <table className="table table-hover">
                 <tbody>

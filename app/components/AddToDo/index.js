@@ -19,12 +19,12 @@ class AddToDo extends React.Component {
         <div className="">
           <label className="f6 b db mb2">New Task Name...</label>
           <input
-            className="input-reset f6 ba b--black-20 pa2 mb2 db w-100"
+            className="input-reset f6 ba b--black-20 pa2 mb2 db w-50"
             ref={node => {
             input = node;
           }}
             onKeyPress={(e) => {
-            if (e.key === 'Enter') 
+            if (e.key === 'Enter')
               this.addTask(input)
           }}/>
         </div>

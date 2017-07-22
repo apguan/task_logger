@@ -1,0 +1,30 @@
+.rowStyle {
+  width: 100%;
+  text-align: left;
+  color: grey;
+  border-style: solid;
+  padding: 5px 20px;
+}
+
+.tableStyle {
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.tdStyle {
+  padding: 5px 20px;
+  text-align: justify;
+  width: 33%;
+  color: gray;
+}
+
+#rightTd {
+  text-align: right;
+}
+
+.tableScroller {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 300px;
+  width: 100%;
+}

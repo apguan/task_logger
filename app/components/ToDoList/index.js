@@ -5,8 +5,8 @@ import ToDo from 'Bitmatica/components/ToDo';
 import AddToDo from 'Bitmatica/components/AddToDo';
 
 class ToDoList extends React.Component {
-
   render() {
+    const todoScroller = `${style.todoScroller}`;
     const todos = this.props.todos.filter((todo) => {
       return todo.sticky;
     }).map((todo, index) => {
@@ -16,11 +16,10 @@ class ToDoList extends React.Component {
     });
     return (
         <div>
-          <div className="fl w-50">
+          <div className="fl w-50" className={todoScroller}>
             {todos}
           </div>
           <div className="fl w-50">
-            <AddToDo onClick={this.props.onClickAddTask} />
           </div>
         </div>
     )
