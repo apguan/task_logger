@@ -83,12 +83,12 @@ class Frontpage extends React.Component {
             <div className="list-group-item">
               <table className="table table-hover"
                 className={tableStyle}>
+                <tr id={centerText}>
+                  <td>Task</td>
+                  <td>Notes</td>
+                  <td>Time</td>
+                </tr>
                 <tbody>
-                  <tr id={centerText}>
-                    <td>Task</td>
-                    <td>Notes</td>
-                    <td>Time</td>
-                  </tr>
                   {entries}
                 </tbody>
               </table>
