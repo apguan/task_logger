@@ -16,6 +16,7 @@ class ToDoList extends React.Component {
     });
     return (
         <div>
+          <AddToDo onClick={this.props.onClickAddTask} />
           <div className="fl w-50" className={todoScroller}>
             {todos}
           </div>

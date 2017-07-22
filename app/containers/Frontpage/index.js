@@ -19,7 +19,8 @@ const rowStyle = `${style.rowStyle}`;
 const tableStyle = `${style.tableStyle}`;
 const tdStyle = `${style.tdStyle}`;
 const rightTd = `${style.rightTd}`;
-const tableScroller = `${style.tableScroller}`
+const tableScroller = `${style.tableScroller}`;
+const centerText = `${style.topRow}`;
 
 class Frontpage extends React.Component {
 
@@ -72,7 +73,6 @@ class Frontpage extends React.Component {
     return (
       <div>
         <div className="fl w-50" >
-          <AddToDo onClick={this.props.onClickAddTask} />
           <ToDoList
             todos={this.props.todos} onClickAddTask={(text, userId=this.props.user.id) => {this.props.onClickAdd(text, userId)}}/>
         </div>
@@ -81,8 +81,14 @@ class Frontpage extends React.Component {
           <h1>Keep Up Your Habits!</h1>
           <div className="list-group" className={tableScroller}>
             <div className="list-group-item">
-              <table className="table table-hover">
+              <table className="table table-hover"
+                className={tableStyle}>
                 <tbody>
+                  <tr id={centerText}>
+                    <td>Task</td>
+                    <td>Notes</td>
+                    <td>Time</td>
+                  </tr>
                   {entries}
                 </tbody>
               </table>
